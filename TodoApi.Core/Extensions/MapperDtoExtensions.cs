@@ -9,9 +9,9 @@ namespace TodoApi.Core.Extensions
 		{
 			return new TodoItemDto
 			{
-				Id = todoItem.Id,
-				Name = todoItem.Name,
-				IsComplete = todoItem.IsComplete
+				Id = todoItem.Id
+				,Name = todoItem.Name
+				,IsComplete = todoItem.IsComplete
 			};
 		}
 	}

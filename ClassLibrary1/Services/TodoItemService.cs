@@ -50,13 +50,14 @@ namespace TodoApi.Test.Services
 				await _context.SaveChangesAsync();
 			}
 			catch (DbUpdateConcurrencyException) when (!TodoItemExists(item.Id))
+			
 			{
 				throw;
 			}
 		}
-		private bool TodoItemExists(long id)
-		{
-			return _context.TodoItems.Any(e => e.Id == id);
-		}
-	}
+        private bool TodoItemExists(long id)
+        {
+            return _context.TodoItems.Any(e => e.Id == id);
+        }
+    }
 }

@@ -11,8 +11,8 @@ namespace TodoApi.Test.Extensions
 			return new TodoItemDto
 			{
 				Id = todoItem.Id,
-				Name = todoItem.Name,
-				IsComplete = todoItem.IsComplete
+				Name = todoItem.Name
+				,IsComplete = todoItem.IsComplete
 			};
 		}
 	}
