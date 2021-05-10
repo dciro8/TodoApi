@@ -66,11 +66,6 @@ namespace Todo.UnitTest
 
             var response = await client.SendAsync(request);
 
-            //client = _testSserver.CreateClient();
-            //client.DefaultRequestHeaders.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //request = new HttpRequestMessage(HttpMethod.Get, "/api/TodoItems/GetTodoItems");
-            //response = await client.SendAsync(request);
             response = await _testSserver.CreateRequest(response.Headers.Location.AbsolutePath).SendAsync("GET");
             //ASSERT
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -111,11 +106,6 @@ namespace Todo.UnitTest
 
             var response = await client.SendAsync(request);
 
-            //client = _testSserver.CreateClient();
-            //client.DefaultRequestHeaders.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //request = new HttpRequestMessage(HttpMethod.Get, "/api/TodoItems/GetTodoItems");
-            //response = await client.SendAsync(request);
             response = await _testSserver.CreateRequest(response.Headers.Location.AbsolutePath).SendAsync("GET");
             //ASSERT
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -144,13 +134,7 @@ namespace Todo.UnitTest
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var response = await client.SendAsync(request);
-
-            //client = _testSserver.CreateClient();
-            //client.DefaultRequestHeaders.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //request = new HttpRequestMessage(HttpMethod.Get, "/api/TodoItems/GetTodoItems");
-            //response = await client.SendAsync(request);
-            response = await _testSserver.CreateRequest(response.Headers.Location.AbsolutePath).SendAsync("GET");
+response = await _testSserver.CreateRequest(response.Headers.Location.AbsolutePath).SendAsync("GET");
             //ASSERT
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
@@ -182,6 +166,10 @@ namespace Todo.UnitTest
             {
                 throw;
             }
+        }
+        [Fact]
+        public async Task TestCreateMethod_Mock()
+        {
         }
     }
 }
