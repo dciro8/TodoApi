@@ -114,7 +114,7 @@ namespace Todo.UnitTest
         [Theory]
         [InlineData(1, "pruebadciro1", true)]
 
-        [InlineData(2,"pruebadciro2",true)]
+        [InlineData(2, "pruebadciro2", true)]
 
         [InlineData(3, "pruebadciro3", false)]
         public async Task TestCreateMethod(int id, string name, bool isComple)
@@ -134,7 +134,7 @@ namespace Todo.UnitTest
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var response = await client.SendAsync(request);
-response = await _testSserver.CreateRequest(response.Headers.Location.AbsolutePath).SendAsync("GET");
+            response = await _testSserver.CreateRequest(response.Headers.Location.AbsolutePath).SendAsync("GET");
             //ASSERT
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
@@ -159,7 +159,7 @@ response = await _testSserver.CreateRequest(response.Headers.Location.AbsolutePa
             try
             {
                 var response = await client.SendAsync(request);
-                response = await _testSserver.CreateRequest("/api​/TodoItems/1").SendAsync("GET");
+                response = await _testSserver.CreateRequest(response.Headers.Location.AbsolutePath).SendAsync("GET");
                 Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             }
             catch (Exception ex)
